@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 myform">
+                <label for="form-control" class="mt-2">Метод закуп</label>
+                <select class="form-select mt-2" aria-label="Default select example" id="metod">
+                    <option value="nalicha" selected>Наличка</option>
+                    <option value="kombi">Комби оплата</option>
+                    <option value="1_k">1 к 1</option>
+                </select>
+                <label for="form-control" class="mt-2">Комиссия</label>
+                <input class="form-control form-control-md mt-2" type="text" aria-label=".form-control-lg example" id="komissiya">
+                
+                <label for="form-control" class="mt-2">Юр лицо</label>
+                <select class="form-select mt-2" aria-label="Default select example" id="yurlitso">
+                    <option value="ooo" selected>ООО</option>
+                    <option value="ip">ИП</option>
+                </select>
+                <label for="form-control" class="mt-2">Цена</label>
+                <input class="form-control form-control-md mt-2" type="text" aria-label=".form-control-lg example" id="price" oninput="formatInput(this)">
+                <label for="form-control" class="mt-2">Гобарит группа</label>
+                <select class="form-select mt-2" aria-label="Default select example" id="gobgroup">
+                    <option value="mgt" selected>МГТ</option>
+                    <option value="sgt">СГТ</option>
+                    <option value="kgt">КГТ</option>
+                </select>
+                <label for="form-control" class="mt-2">Счeт фактура цена</label>
+                <input class="form-control form-control-md mt-2" disabled type="text" aria-label=".form-control-lg example" id="schot">
+                <label for="form-control" class="mt-2">Маржа со скидкой</label>
+                <input class="form-control form-control-md mt-2" type="text" aria-label=".form-control-lg example" id="margin_discount">
+                <label for="form-control" class="mt-2">Маржа пред</label>
+                <input class="form-control form-control-md mt-2" disabled type="text" aria-label=".form-control-lg example" id="margin_before">
+                <button onclick="calculateAndDisplayResults()" class="btn btn-dark mt-2">Submit</button>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5 myform ml-2" id="result">
+                <div class="p1 d-flex mb-3" >фактический приход (Цена):     <p class="ml-2"  id="sebs"></p> </div>
+                <div class="p1 d-flex mb-3" >Самая Минимальная цена продажи: <p class="ml-2" id="minmin"></p></div>
+                <div class="p1 d-flex mb-3" >Минимальная цена продажи ( +2% ): <p class="ml-2" id="min"></p></div>
+                <div class="p1 d-flex mb-3" >Цена со скидкой: <p class="ml-2" id="real_price"></p></div>
+                <div class="p1 d-flex mb-3" >Предлагаемая цена: <p class="ml-2" id="suggested_price"></p></div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
